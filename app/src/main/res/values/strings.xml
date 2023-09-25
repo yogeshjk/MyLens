@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyLens</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="city">city</string>
+    <string name="categories">categories</string>
+    <string name="top_photographers">Top Photographers</string>
+    <string name="ideas">Ideas</string>
+</resources>

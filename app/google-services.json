@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "215426636738",
+    "project_id": "mylens-eaf92",
+    "storage_bucket": "mylens-eaf92.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215426636738:android:29afb6ed77d4349086545b",
+        "android_client_info": {
+          "package_name": "com.yogi.mylens"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVcgotGpVismrE-3BiE2KWslT57ZNVlBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
