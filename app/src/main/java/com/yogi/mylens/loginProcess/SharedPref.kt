@@ -22,9 +22,6 @@ object SharedPref {
         return preferences.getBoolean(key, false)
     }
 
-
-
-
     fun putData(key: String, value: String){
         preferences.edit().putString(key,value).apply()
     }

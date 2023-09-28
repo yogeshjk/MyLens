@@ -3,71 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/communicatorFragment">
+    app:startDestination="@id/home">
 
     <fragment
         android:id="@+id/home"
         tools:layout="@layout/fragment_home_fragmnet"
-        android:name="com.yogi.mylens.fragment.Home"
+        android:name="Home"
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_home_to_selectCity"
             app:destination="@+id/select_city" />
+        <action
+            android:id="@+id/action_home_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/select_city"
         tools:layout="@layout/fragment_select_city"
-        android:name="com.yogi.mylens.fragment.SelectCity"
+        android:name="SelectCity"
         android:label="SelectCityFragment" />
     <fragment
-        android:id="@+id/userInfoFragment"
-        android:name="UserInfoFragment"
-        tools:layout="@layout/fragment_user_info"
-        android:label="UserInfoFragment" >
+        android:id="@+id/profileFragment"
+        android:name="ProfileFragment"
+        tools:layout="@layout/fragment_profile"
+        android:label="ProfileFragment" >
         <action
-            android:id="@+id/action_userInfoFragment_to_home"
-            app:destination="@id/home" />
+            android:id="@+id/action_profileFragment_to_updateProfile"
+            app:destination="@id/updateProfile" />
     </fragment>
     <fragment
-        android:id="@+id/OTPFragment"
-        android:name="OTPFragment"
-        android:label="OTPFragment"
-        tools:layout="@layout/fragment_o_t_p">
-        <action
-            android:id="@+id/action_OTPFragment_to_userInfoFragment"
-            app:destination="@id/userInfoFragment" />
-        <action
-            android:id="@+id/action_OTPFragment_to_home"
-            app:destination="@id/home" />
-    </fragment>
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="LoginFragment"
-        tools:layout="@layout/fragment_login"
-        android:label="LoginFragment" >
-        <action
-            android:id="@+id/action_loginFragment_to_OTPFragment"
-            app:destination="@id/OTPFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/getReadyFragment"
-        android:name="com.yogi.mylens.loginProcess.GetReadyFragment"
-        tools:layout="@layout/fragment_get_ready"
-        android:label="GetReadyFragment" >
-        <action
-            android:id="@+id/action_getReadyFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/communicatorFragment"
-        android:name="com.yogi.mylens.loginProcess.CommunicatorFragment"
-        tools:layout="@layout/fragment_communicator"
-        android:label="CommunicatorFragment" >
-        <action
-            android:id="@+id/action_communicatorFragment_to_getReadyFragment"
-            app:destination="@id/getReadyFragment" />
-        <action
-            android:id="@+id/action_communicatorFragment_to_home"
-            app:destination="@id/home" />
-    </fragment>
+        android:id="@+id/updateProfile"
+        tools:layout="@layout/fragment_update_profile"
+        android:name="com.yogi.mylens.fragment.UpdateProfile"
+        android:label="UpdateProfile" />
 </navigation>

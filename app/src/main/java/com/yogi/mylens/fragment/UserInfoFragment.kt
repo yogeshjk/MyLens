@@ -1,5 +1,6 @@
+package com.yogi.mylens.fragment
 
-
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,19 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.yogi.mylens.R
 import android.text.Editable
-import android.text.Spannable
-import android.text.SpannableString
 import android.text.TextWatcher
-import android.text.style.ForegroundColorSpan
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.card.MaterialCardView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
+import com.yogi.mylens.activity.PhotographyActivity
 import com.yogi.mylens.databinding.FragmentUserInfoBinding
-import com.yogi.mylens.loginProcess.SharedConst
 import com.yogi.mylens.loginProcess.SharedPref
 
 class UserInfoFragment : Fragment() {
@@ -97,10 +93,8 @@ class UserInfoFragment : Fragment() {
                     binding.infoProgressBar.visibility = View.INVISIBLE
                     binding.continueText.visibility = View.VISIBLE
 
-                    val bundle = Bundle()
-                    bundle.putString("mNumber", mNumber)
-
-                    findNavController().navigate(R.id.action_userInfoFragment_to_home)
+                    val intent = Intent(requireActivity(), PhotographyActivity::class.java)
+                    startActivity(intent)
                 }
                 .addOnFailureListener { e ->
                     Toast.makeText(requireContext(), "Error: $e", Toast.LENGTH_SHORT).show()

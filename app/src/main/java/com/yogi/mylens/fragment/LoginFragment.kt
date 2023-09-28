@@ -1,4 +1,4 @@
-
+package com.yogi.mylens.fragment
 import android.os.Bundle
 import android.text.Editable
 import android.text.Spannable
@@ -14,8 +14,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
@@ -154,7 +152,7 @@ class LoginFragment : Fragment() {
             bundle.putString("OTP", verificationId)
             bundle.putParcelable("resendToken", token)
             bundle.putString("mNumber", mNumber)
-            navController.navigate(R.id.action_loginFragment_to_OTPFragment, bundle)
+            navController.navigate(R.id.action_loginFragment2_to_OTPFragment2, bundle)
 
 
             binding.loginContinue.isEnabled = true

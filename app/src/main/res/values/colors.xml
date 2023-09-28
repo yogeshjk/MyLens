@@ -15,6 +15,6 @@
     <color name="red"> #FF0000 </color>
     <color name="green"> #4CAF50 </color>
     <color name="dull_gray"> #CCCCCC </color>
-    <color name="dark_blue"> #107CF1   </color>
+    <color name="dark_blue"> #216489   </color>
     <color name="dark_light"> #BDD3EF   </color>
 </resources>

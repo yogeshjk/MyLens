@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.yogi.mylens.activity.MainActivity
+import com.yogi.mylens.R
 import com.yogi.mylens.databinding.FragmentProfileBinding
-import com.yogi.mylens.loginProcess.GetStartActivity
+import com.yogi.mylens.activity.GetStartActivity
 import com.yogi.mylens.loginProcess.SharedConst
 import com.yogi.mylens.loginProcess.SharedPref
 
@@ -16,6 +17,7 @@ class ProfileFragment : Fragment() {
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var binding: FragmentProfileBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,13 +31,11 @@ class ProfileFragment : Fragment() {
         setLogout()
 
         binding.manageProfile.setOnClickListener {
-
+            findNavController().navigate(R.id.action_profileFragment_to_updateProfile)
         }
 
         binding.profileBack.setOnClickListener {
-            activity?.onBackPressed()
-//          val intent = Intent(requireActivity(), MainActivity::class.java)
-//          startActivity(intent)
+           findNavController().popBackStack()
 
         }
 

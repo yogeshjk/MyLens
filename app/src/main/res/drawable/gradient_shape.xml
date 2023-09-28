@@ -8,8 +8,8 @@
             android:pivotX="-5%"
             android:pivotY="-100%">
             <shape android:shape="rectangle">
-                <gradient  android:startColor="#25A7DA"
-                    android:endColor="#87CEEB"/>
+                <gradient  android:startColor="@color/dark_blue"
+                    android:endColor="@color/dark_light"/>
 
 
             </shape>

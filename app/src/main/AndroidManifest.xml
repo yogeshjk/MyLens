@@ -17,20 +17,19 @@
         android:theme="@style/Theme.MyLens"
         tools:targetApi="31">
         <activity
-            android:name=".ProfileActivity"
+            android:name=".activity.PhotographyActivity"
             android:exported="false" />
         <activity
-            android:name=".loginProcess.GetStartActivity"
+            android:name=".activity.GetStartActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.MainActivity"
-            android:exported="true"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

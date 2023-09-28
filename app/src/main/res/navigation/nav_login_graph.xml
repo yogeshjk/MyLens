@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_login_graph.xml"
+    app:startDestination="@id/getReadyFragment2">
+
+    <fragment
+        android:id="@+id/getReadyFragment2"
+        android:name="com.yogi.mylens.fragment.GetReadyFragment"
+        tools:layout="@layout/fragment_get_ready"
+        android:label="GetReadyFragment" >
+        <action
+            android:id="@+id/action_getReadyFragment2_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.yogi.mylens.fragment.LoginFragment"
+        tools:layout="@layout/fragment_login"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment2_to_OTPFragment2"
+            app:destination="@id/OTPFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/OTPFragment2"
+        android:name="com.yogi.mylens.fragment.OTPFragment"
+        tools:layout="@layout/fragment_o_t_p"
+        android:label="OTPFragment" >
+        <action
+            android:id="@+id/action_OTPFragment2_to_userInfoFragment2"
+            app:destination="@id/userInfoFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/userInfoFragment2"
+        tools:layout="@layout/fragment_user_info"
+        android:name="com.yogi.mylens.fragment.UserInfoFragment"
+        android:label="UserInfoFragment" />
+</navigation>

@@ -1,4 +1,4 @@
-package com.yogi.mylens.loginProcess
+package com.yogi.mylens.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -20,7 +20,7 @@ class GetReadyFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController= Navigation.findNavController(view)
         binding.saveButton.setOnClickListener{
-                navController.navigate(R.id.action_getReadyFragment_to_loginFragment)
+                navController.navigate(R.id.action_getReadyFragment2_to_loginFragment2)
         }
 
     }

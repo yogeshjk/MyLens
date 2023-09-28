@@ -1,22 +1,17 @@
+package com.yogi.mylens.fragment
 
-
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.Editable
-import android.text.Spannable
-import android.text.SpannableString
 import android.text.TextWatcher
-import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -24,8 +19,8 @@ import com.google.android.material.card.MaterialCardView
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
-import com.google.firebase.firestore.FirebaseFirestore
 import com.yogi.mylens.R
+import com.yogi.mylens.activity.PhotographyActivity
 import com.yogi.mylens.databinding.FragmentOTPBinding
 import com.yogi.mylens.loginProcess.SharedConst
 import com.yogi.mylens.loginProcess.SharedPref
@@ -55,7 +50,7 @@ class OTPFragment : Fragment() {
             mNumber = arguments.getString("mNumber").toString()
         }
 
-        Log.d("fire", "no. $mNumber")
+       // Log.d("fire", "no. $mNumber")
         binding.sendSms.text = "Send via SMS to  $mNumber"
 
 
@@ -169,7 +164,8 @@ class OTPFragment : Fragment() {
     }
 
     private fun toMain() {
-        findNavController().navigate(R.id.action_OTPFragment_to_home)
+        val intent = Intent(requireActivity(), PhotographyActivity::class.java)
+        startActivity(intent)
     }
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         mAuth.signInWithCredential(credential)
@@ -179,23 +175,25 @@ class OTPFragment : Fragment() {
                     if (user != null) {
                         val bundle = Bundle()
                         bundle.putString("mNumber", mNumber)
+                        SharedPref.putData(SharedConst.PHN_NO, mNumber)
                         if (user.isNewUser) {
                             SharedPref.putBoolean(SharedConst.IS_USER_LOGGED_IN, true)
-                            findNavController().navigate(R.id.action_OTPFragment_to_userInfoFragment,bundle)
+                            findNavController().navigate(R.id.action_OTPFragment2_to_userInfoFragment2,bundle)
 
                         } else {
-                                            continueOtp.isEnabled = true
-                                            continueOtp.alpha = 1F
+                                continueOtp.isEnabled = true
+                                continueOtp.alpha = 1F
 
-                                            binding.otpProgressBar.visibility = View.INVISIBLE
-                                            binding.continueText.visibility = View.VISIBLE
+                                binding.otpProgressBar.visibility = View.INVISIBLE
+                                binding.continueText.visibility = View.VISIBLE
 
-                                            Toast.makeText(requireContext(), "authSuccess", Toast.LENGTH_SHORT).show()
-                                            toMain()
-                                        }
+                                Toast.makeText(requireContext(), "authSuccess", Toast.LENGTH_SHORT).show()
+                                SharedPref.putBoolean(SharedConst.IS_USER_LOGGED_IN, true)
+                                toMain()
+                                }
 
-                                    }
-                            }
+                        }
+                }
 
                 else {
                     // Sign in failed, display a message and update the UI
@@ -203,7 +201,6 @@ class OTPFragment : Fragment() {
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         // The verification code entered was invalid
                     }
-                    // Update UI
                 }
             }
     }

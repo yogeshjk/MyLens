@@ -4,7 +4,6 @@ import android.app.Application
 
 
 class MyLensApplication :Application() {
-
     override fun onCreate() {
         super.onCreate()
 
